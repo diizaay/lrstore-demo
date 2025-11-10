@@ -25,6 +25,7 @@ function App() {
               <Route path="/categorias/:slug" element={<CategoryPage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/pedido/:orderNumber" element={<OrderConfirmation />} />
+              <Route path="/conta" element={<Account />} />
             </Routes>
           </main>
           <Footer />
