@@ -147,7 +147,7 @@ const OrderConfirmation = () => {
                     <p className="text-sm text-gray-700 mb-2">Vá a qualquer ATM Multicaixa e:</p>
                     <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
                       <li>Selecione "Pagamentos"</li>
-                      <li>Insira a referência: <strong>{order.orderNumber}</strong></li>
+                      <li>Insira a referência: <strong>{order.order_number}</strong></li>
                       <li>Confirme o valor: {formatPrice(order.total)}</li>
                     </ol>
                   </div>
