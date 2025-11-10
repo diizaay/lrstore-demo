@@ -123,7 +123,7 @@ const OrderConfirmation = () => {
                     <ol className="list-decimal list-inside space-y-1 text-gray-700">
                       <li>Abra o aplicativo Multicaixa Express</li>
                       <li>Selecione "Pagamentos"</li>
-                      <li>Insira o número do pedido: <strong>#{order.orderNumber}</strong></li>
+                      <li>Insira o número do pedido: <strong>#{order.order_number}</strong></li>
                       <li>Confirme o pagamento de {formatPrice(order.total)}</li>
                     </ol>
                   </div>
