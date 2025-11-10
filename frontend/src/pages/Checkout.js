@@ -60,32 +60,62 @@ const Checkout = () => {
 
     setIsProcessing(true);
 
-    // Simulate order processing
-    setTimeout(() => {
-      const orderNumber = Math.floor(100000 + Math.random() * 900000);
-      
-      // Store order in localStorage (mock)
-      const order = {
-        orderNumber,
-        items: cart,
-        total: getCartTotal(),
-        customerInfo: formData,
-        date: new Date().toISOString(),
-        status: 'pending'
+    try {
+      // Prepare order data
+      const orderData = {
+        customer: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city
+        },
+        items: cart.map(item => ({
+          product_id: item.id,
+          name: item.name,
+          quantity: item.quantity,
+          selected_color: item.selectedColor,
+          price: item.price,
+          image: item.image
+        })),
+        payment_method: formData.paymentMethod,
+        total: getCartTotal()
       };
-      
-      localStorage.setItem(`order_${orderNumber}`, JSON.stringify(order));
+
+      // Create order via API
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao criar pedido');
+      }
+
+      const data = await response.json();
+      const order = data.order;
       
       clearCart();
       setIsProcessing(false);
       
       toast({
         title: 'Pedido Realizado!',
-        description: `Seu pedido #${orderNumber} foi criado com sucesso.`
+        description: `Seu pedido #${order.order_number} foi criado com sucesso.`
       });
       
-      navigate(`/pedido/${orderNumber}`);
-    }, 2000);
+      navigate(`/pedido/${order.order_number}`);
+    } catch (error) {
+      console.error('Error creating order:', error);
+      setIsProcessing(false);
+      toast({
+        title: 'Erro',
+        description: 'Ocorreu um erro ao criar o pedido. Tente novamente.',
+        variant: 'destructive'
+      });
+    }
   };
 
   if (cart.length === 0) {
