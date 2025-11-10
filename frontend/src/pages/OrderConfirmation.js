@@ -10,11 +10,20 @@ const OrderConfirmation = () => {
   const [order, setOrder] = useState(null);
 
   useEffect(() => {
-    // Retrieve order from localStorage
-    const orderData = localStorage.getItem(`order_${orderNumber}`);
-    if (orderData) {
-      setOrder(JSON.parse(orderData));
-    }
+    // Fetch order from API
+    const fetchOrder = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/orders/${orderNumber}`);
+        if (response.ok) {
+          const data = await response.json();
+          setOrder(data.order);
+        }
+      } catch (error) {
+        console.error('Error fetching order:', error);
+      }
+    };
+    
+    fetchOrder();
   }, [orderNumber]);
 
   const formatPrice = (price) => {
