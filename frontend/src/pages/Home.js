@@ -227,6 +227,121 @@ const Home = () => {
         </div>
       </section>
 
+      {/* All Products Preview */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
+                Todos os Produtos
+              </span>
+            </h2>
+            <p className="text-gray-600 text-lg">Descubra toda nossa coleção</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {products.slice(0, 8).map((product) => (
+              <Card
+                key={product.id}
+                className="border-none shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  {product.originalPrice && (
+                    <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full font-bold text-sm z-10">
+                      -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                    </div>
+                  )}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="font-bold text-sm mb-2 line-clamp-2 h-10">{product.name}</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl font-bold text-purple-900">{formatPrice(product.price)}</span>
+                    {product.originalPrice && (
+                      <span className="text-xs text-gray-400 line-through">
+                        {formatPrice(product.originalPrice)}
+                      </span>
+                    )}
+                  </div>
+                  <Button
+                    onClick={() => addToCart(product, 1, product.colors[0])}
+                    className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold rounded-full text-sm py-5"
+                  >\n                    Adicionar\n                  </Button>
+                </CardContent>
+              </Card>
+            ))}\n          </div>
+
+          <div className="text-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-8 py-6 rounded-full text-lg"
+            >
+              <Link to="/produtos">Ver Mais Produtos</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 bg-gradient-to-b from-purple-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
+                Por Que Escolher LR Store?
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-none shadow-lg text-center">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Produtos de Qualidade</h3>
+                <p className="text-gray-600 text-sm">Produtos certificados e de alta qualidade para suas festas.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg text-center">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Truck className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Entrega Rápida</h3>
+                <p className="text-gray-600 text-sm">Receba em até 1 hora em Luanda durante dias úteis.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg text-center">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Melhor Preço</h3>
+                <p className="text-gray-600 text-sm">Os melhores preços de Angola com descontos incríveis.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg text-center">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <HeadphonesIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Suporte 24/7</h3>
+                <p className="text-gray-600 text-sm">Estamos sempre prontos para ajudar você.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="py-16 bg-gradient-to-r from-purple-900 to-indigo-900 text-white">
         <div className="container mx-auto px-4">
@@ -256,7 +371,38 @@ const Home = () => {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+            ))}\n          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <Sparkles className="w-16 h-16 mx-auto mb-6" />
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Pronto Para Fazer Sua Festa Brilhar?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Explore nossa coleção completa de produtos glow in the dark e neon. Entrega grátis em Luanda!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-8 py-6 rounded-full text-lg"
+            >
+              <Link to="/produtos">Comprar Agora</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold px-8 py-6 rounded-full text-lg"
+            >
+              <Link to="/contacto">Fale Conosco</Link>
+            </Button>
           </div>
         </div>
       </section>
