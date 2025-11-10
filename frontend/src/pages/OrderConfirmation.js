@@ -76,11 +76,11 @@ const OrderConfirmation = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-600">Número do Pedido</p>
-                  <p className="text-xl font-bold text-purple-900">#{order.orderNumber}</p>
+                  <p className="text-xl font-bold text-purple-900">#{order.order_number}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Data</p>
-                  <p className="font-semibold">{new Date(order.date).toLocaleDateString('pt-AO')}</p>
+                  <p className="font-semibold">{new Date(order.created_at).toLocaleDateString('pt-AO')}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Status</p>
