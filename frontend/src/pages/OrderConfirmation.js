@@ -143,7 +143,7 @@ const OrderConfirmation = () => {
                   </div>
                   <div className="bg-white rounded p-3">
                     <p className="font-semibold mb-2">Referência de Pagamento:</p>
-                    <p className="text-3xl font-black text-purple-900 mb-3">{order.orderNumber}</p>
+                    <p className="text-3xl font-black text-purple-900 mb-3">{order.order_number}</p>
                     <p className="text-sm text-gray-700 mb-2">Vá a qualquer ATM Multicaixa e:</p>
                     <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
                       <li>Selecione "Pagamentos"</li>
