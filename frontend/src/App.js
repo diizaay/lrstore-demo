@@ -10,6 +10,7 @@ import Products from "./pages/Products";
 import CategoryPage from "./pages/CategoryPage";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import Account from "./pages/Account";
 
 function App() {
   return (
