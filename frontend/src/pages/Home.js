@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, Truck, CreditCard, HeadphonesIcon, Star } from 'lucide-react';
-import { categories, featuredProducts, testimonials } from '../data/mockData';
+import { categories, featuredProducts, testimonials, products } from '../data/mockData';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { useCart } from '../context/CartContext';
