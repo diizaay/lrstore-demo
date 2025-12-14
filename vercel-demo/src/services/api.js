@@ -72,7 +72,8 @@ export const {
     getAdminOrder,
     updateAdminOrderStatus,
     getAdminUser,
-    updateAdminUser
+    updateAdminUser,
+    uploadAdminAsset
 } = apiMock;
 
 // Exporta também o default

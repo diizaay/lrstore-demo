@@ -529,3 +529,4 @@ export default {
   getAdminOrders,
   getAdminUsers
 };
+export const uploadAdminAsset = getAdminDashboardSummary;
