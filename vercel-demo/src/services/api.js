@@ -73,10 +73,12 @@ export const {
     updateAdminOrderStatus,
     getAdminUser,
     updateAdminUser,
-    uploadAdminAsset
+    uploadAdminAsset,
+    getAdminSupportMessages,
+    updateAdminSupportMessage
 } = apiMock;
 
-// Exporta também o default
+// Export também o default
 export default apiMock.default;
 
 // Mock do BACKEND_URL e api axios para compatibilidade

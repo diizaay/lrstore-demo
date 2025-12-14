@@ -530,3 +530,5 @@ export default {
   getAdminUsers
 };
 export const uploadAdminAsset = getAdminDashboardSummary;
+export const getAdminSupportMessages = getAdminDashboardSummary;
+export const updateAdminSupportMessage = getAdminDashboardSummary;
