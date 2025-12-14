@@ -460,6 +460,19 @@ export const getAdminUsers = async () => {
   return mockError('Funcionalidade admin não disponível na demo', 403);
 };
 
+// ALIASES DE COMPATIBILIDADE PARA ADMIN
+export const getAdminCategories = getAdminDashboardSummary;
+export const createAdminProduct = getAdminDashboardSummary;
+export const updateAdminProduct = getAdminDashboardSummary;
+export const deleteAdminProduct = getAdminDashboardSummary;
+export const createAdminCategory = getAdminDashboardSummary;
+export const updateAdminCategory = getAdminDashboardSummary;
+export const deleteAdminCategory = getAdminDashboardSummary;
+export const getAdminOrder = getAdminDashboardSummary;
+export const updateAdminOrderStatus = getAdminDashboardSummary;
+export const getAdminUser = getAdminDashboardSummary;
+export const updateAdminUser = getAdminDashboardSummary;
+
 // Exportar todas as funções necessárias
 export default {
   // Categorias
