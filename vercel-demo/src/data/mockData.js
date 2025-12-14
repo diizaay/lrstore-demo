@@ -349,3 +349,49 @@ export const testimonials = [
 ];
 
 export const cartInitialState = [];
+
+// Usuário demo
+export const mockUser = {
+  id: 'user-demo-1',
+  name: 'Cliente Demo',
+  email: 'demo@lrstore.com',
+  phone: '+244 900 000 000',
+  is_admin: false,
+  created_at: '2024-01-01T00:00:00Z',
+  updated_at: '2024-01-01T00:00:00Z'
+};
+
+// Endereços mockados
+export const mockAddresses = [
+  {
+    id: 'addr-1',
+    user_id: 'user-demo-1',
+    contact_name: 'Cliente Demo',
+    phone: '+244 900 000 000',
+    province: 'Luanda',
+    municipality: 'Luanda',
+    neighborhood: 'Miramar',
+    street: 'Rua Principal, 123',
+    created_at: '2024-01-01T00:00:00Z',
+    updated_at: '2024-01-01T00:00:00Z'
+  }
+];
+
+// Pedidos mockados
+export const mockOrders = [
+  {
+    order_number: '100001',
+    user_id: 'user-demo-1',
+    customer: {
+      name: 'Cliente Demo',
+      email: 'demo@lrstore.com',
+      phone: '+244 900 000 000'
+    },
+    items: [],
+    total: 0,
+    payment_method: 'multicaixa',
+    status: 'delivered',
+    created_at: '2024-01-15T10:00:00Z',
+    updated_at: '2024-01-20T14:30:00Z'
+  }
+];
