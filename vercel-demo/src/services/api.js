@@ -61,7 +61,18 @@ export const {
     getAdminDashboardSummary,
     getAdminProducts,
     getAdminOrders,
-    getAdminUsers
+    getAdminUsers,
+    getAdminCategories,
+    createAdminProduct,
+    updateAdminProduct,
+    deleteAdminProduct,
+    createAdminCategory,
+    updateAdminCategory,
+    deleteAdminCategory,
+    getAdminOrder,
+    updateAdminOrderStatus,
+    getAdminUser,
+    updateAdminUser
 } = apiMock;
 
 // Exporta também o default
